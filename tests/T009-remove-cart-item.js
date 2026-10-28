@@ -255,7 +255,7 @@ async function main() {
         await inspectCart(driver);
 
         await pause(
-            'SCENARIO 1: Take a screenshot showing both products.'
+            '2 products are in the cart'
         );
 
         const scenario1Products = await removeProduct(
@@ -273,7 +273,7 @@ async function main() {
         );
 
         await pause(
-            'SCENARIO 1: Take a screenshot after removing MacBook.'
+            'MacBook was removed'
         );
 
         // SCENARIO 2:
@@ -286,7 +286,7 @@ async function main() {
         await inspectCart(driver);
 
         await pause(
-            'SCENARIO 2: Take a screenshot showing the iPhone in the cart.'
+            'iPhone is still in the cart'
         );
 
         const scenario2Products = await removeProduct(
@@ -325,7 +325,7 @@ async function main() {
         await setQuantity(driver, 'MacBook', 2);
 
         await pause(
-            'SCENARIO 3: Take a screenshot showing quantity 2.'
+            '2 MacBooks are in the cart'
         );
 
         const scenario3Products = await removeProduct(
@@ -347,7 +347,7 @@ async function main() {
         );
 
         await pause(
-            'SCENARIO 3: Take a screenshot of the empty cart.'
+            'Cart is now empty.'
         );
 
         console.log('\n====================================');
@@ -357,9 +357,6 @@ async function main() {
         console.log('Scenario 2:', scenario2Pass ? 'Expected result observed' : 'Check actual result');
         console.log('Scenario 3:', scenario3Pass ? 'Expected result observed' : 'Check actual result');
 
-        console.log(
-            '\nReview the screenshots and website behaviour before finalising Pass/Fail.'
-        );
 
         await pause('Review the final browser state before closing.');
 
@@ -367,7 +364,7 @@ async function main() {
         console.error('\nTC09 execution error:', error.message);
 
         await pause(
-            'The test stopped. Inspect Chrome and take a screenshot if useful.'
+            'Testing is done'
         );
 
         process.exitCode = 1;

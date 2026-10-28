@@ -175,7 +175,7 @@ async function main() {
         await inspectMacBook(driver);
 
         await pause(
-            'SETUP SCREENSHOT: Capture MacBook in the cart before updating.'
+            'MacBook is in the cart before being updated'
         );
 
         // SCENARIO 1: Increase quantity from 1 to 2.
@@ -184,7 +184,7 @@ async function main() {
         await updateQuantity(driver, 2);
 
         await pause(
-            'SCREENSHOT: Capture the cart with the updated quantity.'
+            'Quantity in cart was updated'
         );
 
         // SCENARIO 2: Decrease quantity from 2 to 1.
@@ -193,7 +193,7 @@ async function main() {
         await updateQuantity(driver, 1);
 
         await pause(
-            'SCREENSHOT: Capture the cart after decreasing quantity.'
+            'Quantity in cart decreased'
         );
 
         // SCENARIO 3: Enter invalid quantity 0.
@@ -202,21 +202,18 @@ async function main() {
         await updateQuantity(driver, 0);
 
         await pause(
-            'SCREENSHOT: Capture the website response to quantity 0.'
+            'Website response to quantity 0'
         );
 
         console.log('\nTC08 test actions completed.');
-        console.log(
-            'Review the screenshots and actual results before marking Pass or Fail.'
-        );
 
-        await pause('Review the final browser state before closing.');
+        await pause('Final testing point');
 
     } catch (error) {
         console.error('\nTC08 execution error:', error.message);
 
         await pause(
-            'The test stopped. Inspect Chrome before closing.'
+            'The test stopped. Inspect before closing.'
         );
 
         process.exitCode = 1;

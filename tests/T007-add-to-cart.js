@@ -1,4 +1,3 @@
-
 const { Builder, By, until } = require('selenium-webdriver');
 const readline = require('readline/promises');
 const { stdin, stdout } = require('process');
@@ -87,7 +86,7 @@ async function main() {
         const firstProduct = await selectProduct(driver, 0);
 
         await addCurrentProduct(driver);
-        await pause('SCREENSHOT: Capture the Add to Cart confirmation.');
+        await pause('Add to Cart confirmation');
 
         await inspectCart(driver);
 
@@ -97,11 +96,11 @@ async function main() {
         const secondProduct = await selectProduct(driver, 1);
 
         if (secondProduct.productUrl === firstProduct.productUrl) {
-            throw new Error('The two selected products are the same.');
+            throw new Error('The two selected products are the same');
         }
 
         await addCurrentProduct(driver);
-        await pause('SCREENSHOT: Capture the second product confirmation.');
+        await pause('Second product confirmation');
 
         await inspectCart(driver);
 
@@ -116,17 +115,16 @@ async function main() {
         );
 
         await addCurrentProduct(driver);
-        await pause('SCREENSHOT: Capture the repeated-addition confirmation.');
+        await pause('Repeated-addition confirmation');
 
         await inspectCart(driver);
 
-        console.log('\nTC07 scenarios completed.');
-        console.log('Check the screenshots and actual cart behaviour before marking Pass or Fail.');
+        console.log('\nTesting is completed');
 
-        await pause('Review the final browser state before closing.');
+        await pause('Final browser state');
 
     } catch (error) {
-        console.error('\nTC07 execution error:', error.message);
+        console.error('\nT007 execution error:', error.message);
         await pause('The test stopped. Inspect Chrome before closing.');
         process.exitCode = 1;
     } finally {
